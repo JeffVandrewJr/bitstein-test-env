@@ -4,7 +4,7 @@ To view the original Medium post that inspired this, [click here](https://medium
 
 [@bitstein](https://twitter.com/bitstein) recently put out a tutorial on setting up a local BTC/LN regtest environment.
 
-I liked it, so I made the environment setup easier by dockerizing it.
+I liked it, so I made the environment setup easier by Dockerizing it.
 
 To set up the testing environment, simply clone this git repository, and then:
 
