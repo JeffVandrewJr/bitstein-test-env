@@ -8,7 +8,7 @@ I liked it, so I made the environment setup easier by Dockerizing it.
 
 To set up the testing environment, simply clone this git repository, and then:
 
-```
+```bash
 cd bitstein-test-env
 sudo docker-compose up -d
 ```
