@@ -13,7 +13,7 @@ cd bitstein-test-env
 sudo docker-compose up -d
 ```
 
-That's literally it. You're done.
+That's literally it. You're done. You can easily tear the setup down with `sudo docker-compose down`.
 
 ## Simplifications and differences from the canonical version Medium post instructions:
 
