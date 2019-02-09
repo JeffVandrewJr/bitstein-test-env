@@ -15,7 +15,7 @@ sudo docker-compose up -d
 
 That's literally it. You're done.
 
-<h2>Simplifications and differences from the canonical [@bitstein](https://twitter.com/bitstein) version:</h2>
+## Simplifications and differences from the canonical [@bitstein](https://twitter.com/bitstein) version:
 
 1. He calls his two lightning nodes "1" and "2." Here they are instead called "alice" and "bob".
 
