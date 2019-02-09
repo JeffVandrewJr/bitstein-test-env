@@ -21,7 +21,7 @@ That's literally it. You're done.
 
 2. You don't need to mess with bash aliases, as Alice and Bob have their own containers on their own little private network. Whenever you want to send a command to Alice's `lncli` you just run `./lncli-alice.sh <command>`. The `lncli-alice.sh` script automatically forwards the command into Alice's container for you. Same works for Bob. For bitcoind, you simply run `bitcoin-cli.sh <command>`. You may need to use `sudo` for these commands.
 
-3. In the canonical version, one of the nodes had to use the nonstandard port 9734. In the Dockerized version, since everyone has their own container, both nodes run on the standard 9735.
+3. In the Medium post instructions, one of the nodes had to use the nonstandard port 9734. In the Dockerized version, since everyone has their own container, both nodes run on the standard 9735.
 
 4. For any Docker noobs, Docker automatically uses the container names as resolvable IP addresses. So if you're trying to connect to the nodes, Alice's IP address is simply `alice:9735` and Bob's is `bob:9735`.
 
