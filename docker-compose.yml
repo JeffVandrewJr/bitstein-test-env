@@ -1,0 +1,89 @@
+version: "3"
+
+services:
+    bitcoind:
+        restart: unless-stopped
+        container_name: bitcoind
+        image: btcpayserver/bitcoin:0.17.0
+        environment:
+            BITCOIN_NETWORK: regtest
+            BITCOIN_EXTRA_ARGS: |
+                rpcport=8332
+                port=8333
+                whitelist=0.0.0.0/0
+                zmqpubrawblock=tcp://0.0.0.0:28332
+                zmqpubrawtx=tcp://0.0.0.0:28333
+        expose:
+            - "8332"
+            - "8333"
+            - "28332"
+            - "28333"
+        volumes:
+            - "bitcoin_datadir:/data"
+    lnd_bob:
+        image: btcpayserver/lnd:v0.5.1-beta-2
+        container_name: bob
+        restart: unless-stopped
+        environment:
+            LNC_CHAIN: "btc"
+            LND_ENVIRONMENT: "regtest"
+            LND_EXTRA_ARGS: |
+                restlisten=0.0.0.0:8080
+                rpclisten=127.0.0.1:10008
+                rpclisten=0.0.0.0:10009
+                bitcoin.node=bitcoind
+                bitcoin.active=1
+                bitcoin.regtest=1
+                bitcoind.rpchost=bitcoind:8332
+                bitcoind.zmqpubrawblock=tcp://bitcoind:28332
+                bitcoind.zmqpubrawtx=tcp://bitcoind:28333
+                alias=bob
+                adminmacaroonpath=/data/admin.macaroon
+                invoicemacaroonpath=/data/invoice.macaroon
+                readonlymacaroonpath=/data/readonly.macaroon
+                noseedbackup=1
+                notls=1
+        expose:
+            - "8080"
+            - "9735"
+        volumes:
+            - "bob_datadir:/data"
+            - "bitcoin_datadir:/deps/.bitcoin"
+        links:
+            - bitcoind
+    lnd_alice:
+        image: btcpayserver/lnd:v0.5.1-beta-2
+        container_name: alice
+        restart: unless-stopped
+        environment:
+            LNC_CHAIN: "btc"
+            LND_ENVIRONMENT: "regtest"
+            LND_EXTRA_ARGS: |
+                restlisten=0.0.0.0:8080
+                rpclisten=127.0.0.1:10008
+                rpclisten=0.0.0.0:10009
+                bitcoin.node=bitcoind
+                bitcoin.active=1
+                bitcoin.regtest=1
+                bitcoind.rpchost=bitcoind:8332
+                bitcoind.zmqpubrawblock=tcp://bitcoind:28332
+                bitcoind.zmqpubrawtx=tcp://bitcoind:28333
+                alias=alice
+                adminmacaroonpath=/data/admin.macaroon
+                invoicemacaroonpath=/data/invoice.macaroon
+                readonlymacaroonpath=/data/readonly.macaroon
+                noseedbackup=1
+                notls=1
+        expose:
+            - "8080"
+            - "9735"
+        volumes:
+            - "alice_datadir:/data"
+            - "bitcoin_datadir:/deps/.bitcoin"
+        links:
+            - bitcoind
+
+volumes:
+    bitcoin_datadir:
+    alice_datadir:
+    bob_datadir:
