@@ -1,4 +1,4 @@
-<h1>A Dockerized Setup for [@bitstein](https://twitter.com/bitstein)'s BTC/LN Network Test Environment</h1>
+# A Dockerized Setup for [@bitstein](https://twitter.com/bitstein)'s BTC/LN Network Test Environment
 
 To view the original setup instructions, [click here](https://medium.com/@bitstein/setting-up-a-bitcoin-lightning-network-test-environment-ab967167594a).
 
