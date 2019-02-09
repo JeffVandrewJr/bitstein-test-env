@@ -1,6 +1,6 @@
 # A Dockerized Setup for [@bitstein](https://twitter.com/bitstein)'s BTC/LN Network Test Environment
 
-To view the original setup instructions, [click here](https://medium.com/@bitstein/setting-up-a-bitcoin-lightning-network-test-environment-ab967167594a).
+To view the original Medium post that inspired this, [click here](https://medium.com/@bitstein/setting-up-a-bitcoin-lightning-network-test-environment-ab967167594a).
 
 [@bitstein](https://twitter.com/bitstein) recently put out a tutorial on setting up a local BTC/LN regtest environment.
 
