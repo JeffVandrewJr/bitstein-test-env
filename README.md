@@ -15,7 +15,7 @@ sudo docker-compose up -d
 
 That's literally it. You're done. You can easily tear the setup down with `sudo docker-compose down`.
 
-## Simplifications and differences from the canonical version Medium post instructions:
+## Simplifications and differences from the Instructions on Medium:
 
 1. He calls his two lightning nodes "1" and "2." Here they are instead called "alice" and "bob".
 
