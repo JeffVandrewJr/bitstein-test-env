@@ -21,7 +21,7 @@ services:
         volumes:
             - "bitcoin_datadir:/data"
     lnd_bob:
-        image: btcpayserver/lnd:v0.5.2-beta
+        image: btcpayserver/lnd:v0.5.1-beta-2
         container_name: bob
         restart: unless-stopped
         environment:
@@ -52,7 +52,7 @@ services:
         links:
             - bitcoind
     lnd_alice:
-        image: btcpayserver/lnd:v0.5.2-beta
+        image: btcpayserver/lnd:v0.5.1-beta-2
         container_name: alice
         restart: unless-stopped
         environment:
